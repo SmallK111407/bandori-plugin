@@ -2,7 +2,7 @@ import setting from './setting.js'
 import _ from 'lodash'
 import fs from 'node:fs/promises'
 
-const _path = process.cwd() + '/plugins/useless-plugin'
+const _path = process.cwd() + '/plugins/bandori-plugin'
 
 let defAlias = null
 
