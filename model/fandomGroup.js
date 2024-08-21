@@ -7,7 +7,7 @@ export async function getAllKeys() {
     try {
         const data = await fs.readFile(filePath, 'utf-8')
         const json = JSON.parse(data)
-        return Object.keys(json).join('\n')
+        return Object.keys(json).join(' ')
     } catch (error) {
         console.error('读取文件错误:', error)
     }

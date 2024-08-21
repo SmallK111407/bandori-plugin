@@ -30,13 +30,13 @@ export class getFandomGroup extends plugin {
         let reg = this.e.msg.replace(/#邦邦|邦多利|同好群/g, '').trim()
         if (!reg) return this.e.reply([segment.image(`${_path}/resources/images/fandomMap.png`), `可发送 #同好群帮助 获取帮助`])
         const fandomGroups = await getElementsByKey(reg)
-        await this.e.reply(`您所查询的 ${reg} 有以下同好群！\n`, fandomGroups)
+        await this.e.reply(`您所查询的 ${reg} 有以下同好群！\n` + fandomGroups)
     }
     async fandomGroupHelp() {
         await this.e.reply(`1.发送 #邦邦同好群 可查看同好群地图！\n2.如需查询单独对应区域的请在"同好群"前面添加省份/自治区/直辖市！例如 #邦邦福建同好群\n3.发送 #同好群区域列表 即可查看可查询的区域！\n`)
     }
     async fandomGroupArea() {
         const fandomGroupsArea = await getAllKeys()
-        await this.e.reply(`目前可支持查询以下区域！\n`, fandomGroupsArea)
+        await this.e.reply(`目前可支持查询以下区域！\n` + fandomGroupsArea)
     }
 }
