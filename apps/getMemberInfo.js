@@ -1,5 +1,4 @@
 import plugin from '../../../lib/plugins/plugin.js'
-import common from '../../../lib/common/common.js'
 import { getMemberInfo } from '../model/api.js'
 import alias from '../model/alias.js'
 
