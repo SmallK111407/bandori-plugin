@@ -26,26 +26,26 @@ export class getMemberInformation extends plugin {
         if (!role) return false
         try {
             const res = await getMemberInfo(role)
-            const squareImage = res.square_image
-            const image = res.image
+            console.log(res)
             const messages = [
-                `方形头像:`, segment.image(squareImage),
-                `小人图片:`, segment.image(image),
-                `罗马名字:${res.name}`,
-                `日文名字:${res.japanese_name}`,
-                `所属乐队:${res.i_band}`,
-                `学校:${res.school}`,
-                `年级:${res.i_school_year}`,
-                `CV日文名字:${res.CV}`,
-                `CV罗马名字:${res.romaji_CV}`,
-                `生日:${res.birthday}`,
-                `喜欢的食物:${res.food_like}`,
-                `不喜欢的食物:${res.food_dislike}`,
-                `星座:${res.i_astrological_sign}`,
-                `乐器:${res.instrument}`,
-                `介绍:${res.description}`,
-                `角色ID:${res.id}`
-            ].join(`\n`).trim()
+                `圆形头像:`, segment.image(res.square_image),
+                `\n小人图片:`, segment.image(res.image),
+                `\n罗马名字:${res.name}`,
+                `\n日文名字:${res.japanese_name}`,
+                `\n所属乐队:${res.i_band}`,
+                `\n学校:${res.school}`,
+                `\n年级:${res.i_school_year}`,
+                `\nCV日文名字:${res.CV}`,
+                `\nCV罗马名字:${res.romaji_CV}`,
+                `\n生日:${res.birthday}`,
+                `\n喜欢的食物:${res.food_like}`,
+                `\n不喜欢的食物:${res.food_dislike}`,
+                `\n星座:${res.i_astrological_sign}`,
+                `\n乐器:${res.instrument}`,
+                `\n介绍:${res.description}`,
+                `角色ID:${res.id}`,
+                `\n由于内容来自国外网站，所以暂时无法提供翻译！`
+            ]
             const firstName = alias.getFirstElement(role)
             const replyMsg = await common.makeForwardMsg(this.e, messages, `我去！一不小心合了${firstName}`)
             await this.e.reply(replyMsg)
