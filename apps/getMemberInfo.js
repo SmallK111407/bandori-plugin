@@ -12,7 +12,7 @@ export class getMemberInformation extends plugin {
             priority: 10,
             rule: [
                 {
-                    reg: '^#?(开合|开盒)?(邦邦|邦多利)?(.*)信息$',
+                    reg: '^#?(开合|开盒)?(邦邦|邦多利)?(.*)(信息)?$',
                     fnc: 'getMemberInformation'
                 }
             ]
@@ -24,7 +24,8 @@ export class getMemberInformation extends plugin {
         let name = reg
         let role = alias.get(name)
         if (!role) return false
-        getMemberInfo(role).then(res => {
+        try {
+            const res = await getMemberInfo(role)
             const messages = [
                 `方形头像:`, segment.image(res.square_image),
                 `小人图片:`, segment.image(image),
@@ -44,8 +45,11 @@ export class getMemberInformation extends plugin {
                 `角色ID:${res.id}`
             ]
             const message = messages.join(`\n`).trim()
-            const replyMsg = common.makeForwardMsg(this.e, message, `我去！一不小心合了${role[0]}`)
-            this.e.reply(replyMsg)
-        })
+            const replyMsg = await common.makeForwardMsg(this.e, message, `我去！一不小心合了${role[0]}`)
+            await this.e.reply(replyMsg)
+        } catch (error) {
+            logger.error(`访问时产生了不可抗拒的因素:`, error)
+            return false
+        }
     }
 }
