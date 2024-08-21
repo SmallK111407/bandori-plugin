@@ -46,8 +46,8 @@ export class getMemberInformation extends plugin {
                 `介绍:${res.description}`,
                 `角色ID:${res.id}`
             ].join(`\n`).trim()
-            const aliasesArray = defAlias[role]
-            const replyMsg = await common.makeForwardMsg(this.e, messages, `我去！一不小心合了${aliasesArray[0]}`)
+            const firstName = alias.getFirstElement(role)
+            const replyMsg = await common.makeForwardMsg(this.e, messages, `我去！一不小心合了${firstName}`)
             await this.e.reply(replyMsg)
         } catch (error) {
             logger.error(`访问时产生了不可抗拒的因素:`, error)

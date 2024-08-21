@@ -15,7 +15,7 @@ async function loadAliasData() {
   }
 }
 
-await   loadAliasData()
+await loadAliasData()
 
 export default new class {
   get(name) {
@@ -31,5 +31,15 @@ export default new class {
   }
   getAllName() {
     return { ...defAlias, ...setting.getConfig('alias') }
+  }
+
+  getFirstElement(id) {
+    const aliasList = this.getAllName()
+    const aliases = aliasList[id]
+    if (Array.isArray(aliases) && aliases.length > 0) {
+      return aliases[0]
+    } else {
+      return null
+    }
   }
 }()
