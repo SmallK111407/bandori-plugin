@@ -28,7 +28,7 @@ export class getMemberInformation extends plugin {
             const res = await getMemberInfo(role)
             const messages = [
                 `方形头像:`, segment.image(res.square_image),
-                `小人图片:`, segment.image(image),
+                `小人图片:`, segment.image(res.image),
                 `罗马名字:${res.name}`,
                 `日文名字:${res.japanese_name}`,
                 `所属乐队:${res.i_band}`,
