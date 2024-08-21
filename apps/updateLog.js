@@ -41,7 +41,7 @@ export class updateLog extends plugin {
     let line = log.length
     log = log.join('\n\n')
     if (log.length <= 0) return ''
-    let end = '更多详细信息，请前往gitee查看\nhttps://gitee.com/SmallK111407/bandori-plugin/commits/main'
+    let end = '更多详细信息，请前往github查看\nhttps://github.com/SmallK111407/bandori-plugin/commits/main'
     log = await common.makeForwardMsg(this.e, [log, end], `${plugin}更新日志，共${line}条`)
     return log
   }
