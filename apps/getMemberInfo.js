@@ -28,7 +28,7 @@ export class getMemberInformation extends plugin {
             const res = await getMemberInfo(role)
             const firstName = alias.getFirstElement(role)
             const messages = [
-                `我去！一不小心合了`, firstName + `~`,
+                `我去！一不小心合了`, firstName,
                 `\n\n圆形头像:`, segment.image(res.square_image),
                 `\n小人图片:`, segment.image(res.image),
                 `\n罗马名字:`, res.name,
@@ -44,7 +44,7 @@ export class getMemberInformation extends plugin {
                 `\n星座:`, res.i_astrological_sign,
                 `\n乐器:`, res.instrument,
                 `\n介绍:`, res.description,
-                `角色ID:`, res.id,
+                `\n角色ID:`, res.id,
                 `\n由于内容来自国外网站，所以暂时无法提供翻译！`
             ]
             await this.e.reply(messages)
