@@ -31,7 +31,7 @@ git clone --depth=1 https://gitee.com/SmallK111407/bandori-plugin.git ./plugins/
 
 <details><summary>展开/收起</summary>
 
-暂无
+咯咯咯~
 
 </details>
 
