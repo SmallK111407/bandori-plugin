@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 
-const filePath = '../jsonData/fandomGroup.json'
+const _path = process.cwd() + '/plugins/bandori-plugin'
+const filePath = `${_path}/model/jsonData/fandomGroup.json`
 
 export async function getAllKeys() {
     try {
