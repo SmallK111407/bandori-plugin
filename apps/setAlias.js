@@ -132,9 +132,9 @@ export class abbrSet extends plugin {
     for (let i in result.aliases) {
       let num = Number(i) + 1
       msg.push(`${num}.${result.aliases[i]}`)
-      msg = msg.join('\n')
     }
+    let resultString = msg.join('\n')
     let title = `${result.name}别名，${msg.length}个`
-    await this.e.reply(await common.makeForwardMsg(this.e, msg, title))
+    await this.e.reply(await common.makeForwardMsg(this.e, resultString, title))
   }
 }
