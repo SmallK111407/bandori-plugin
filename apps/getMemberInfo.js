@@ -12,7 +12,7 @@ export class getMemberInformation extends plugin {
             priority: 10,
             rule: [
                 {
-                    reg: '^#?(开合|开盒)(邦邦|邦多利)?',
+                    reg: '^#?(邦邦|邦多利)?(开合|开盒)',
                     fnc: 'getMemberInformation'
                 }
             ]
