@@ -28,9 +28,8 @@ export class getMemberInformation extends plugin {
             const res = await getMemberInfo(role)
             const firstName = alias.getFirstElement(role)
             const messages = [
+                segment.image(res.image),
                 `我去！一不小心合了`, firstName,
-                `\n\n圆形头像:`, segment.image(res.square_image),
-                `\n小人图片:`, segment.image(res.image),
                 `\n罗马名字:`, res.name,
                 `\n日文名字:`, res.japanese_name,
                 `\n所属乐队:`, res.i_band,
