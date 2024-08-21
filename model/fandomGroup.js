@@ -20,7 +20,7 @@ export async function getElementsByKey(key) {
         if (json[key]) {
             return json[key].join('\n')
         } else {
-            return this.e.reply('查询区域错误，请发送 #同好群区域列表 查看可查询的区域！')
+            throw new Error(`键值 "${key}" not found`)
         }
     } catch (error) {
         console.error('读取错误文件或键值:', error)
