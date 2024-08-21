@@ -20,7 +20,7 @@ export class getFandomGroup extends plugin {
                     fnc: 'fandomGroupHelp'
                 },
                 {
-                    reg: '^#?(邦邦|邦多利)?同好区域列表$',
+                    reg: '^#?(邦邦|邦多利)?同好(群|群聊)?(区域|位置)?列表$',
                     fnc: 'fandomGroupArea'
                 }
             ]
@@ -34,7 +34,7 @@ export class getFandomGroup extends plugin {
         await this.e.reply(`您所查询的 ${reg} 有以下同好群！\n` + fandomGroups)
     }
     async fandomGroupHelp() {
-        await this.e.reply(`1.使用 #邦邦同好群 可查看同好群地图！\n2.如需查询单独对应区域的请在"同好群"前面添加省份/自治区/直辖市！例如 #邦邦福建同好群\n3.使用 #同好群区域列表 即可查看可查询的区域！\n`)
+        await this.e.reply(`1.使用 #邦邦同好群 可查看同好群地图！\n2.如需查询单独对应区域的请在"同好群"前面添加省份/自治区/直辖市！例如 #邦邦福建同好群\n3.使用 #同好群列表 即可查看可查询的区域！\n`)
     }
     async fandomGroupArea() {
         const fandomGroupsArea = await getAllKeys()
