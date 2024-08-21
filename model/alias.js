@@ -15,7 +15,7 @@ async function loadAliasData() {
   }
 }
 
-loadAliasData()
+await   loadAliasData()
 
 export default new class {
   get(name) {

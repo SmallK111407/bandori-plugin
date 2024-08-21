@@ -26,9 +26,11 @@ export class getMemberInformation extends plugin {
         if (!role) return false
         try {
             const res = await getMemberInfo(role)
+            const squareImage = res.square_image
+            const image = res.image
             const messages = [
-                `方形头像:`, segment.image(res.square_image),
-                `小人图片:`, segment.image(res.image),
+                `方形头像:`, segment.image(squareImage),
+                `小人图片:`, segment.image(image),
                 `罗马名字:${res.name}`,
                 `日文名字:${res.japanese_name}`,
                 `所属乐队:${res.i_band}`,
@@ -43,9 +45,9 @@ export class getMemberInformation extends plugin {
                 `乐器:${res.instrument}`,
                 `介绍:${res.description}`,
                 `角色ID:${res.id}`
-            ]
-            const message = messages.join(`\n`).trim()
-            const replyMsg = await common.makeForwardMsg(this.e, message, `我去！一不小心合了${role[0]}`)
+            ].join(`\n`).trim()
+            const aliasesArray = defAlias[role]
+            const replyMsg = await common.makeForwardMsg(this.e, messages, `我去！一不小心合了${aliasesArray[0]}`)
             await this.e.reply(replyMsg)
         } catch (error) {
             logger.error(`访问时产生了不可抗拒的因素:`, error)
