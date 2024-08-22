@@ -1,6 +1,8 @@
 import plugin from '../../../lib/plugins/plugin.js'
 import { getRandomMemberImage } from '../model/api.js'
+import setting from '../model/setting.js'
 
+const CD = {}
 export class bandoriRelife extends plugin {
     constructor() {
         super({
@@ -16,7 +18,17 @@ export class bandoriRelife extends plugin {
             ]
         })
     }
+    get appconfig() { return setting.getConfig("config") }
     async bandoriRelife() {
+        let cdtime = this.appconfig['relifeCD']
+        if (CD[this.e.user_id] && !this.e.isMaster) {
+            this.e.reply('每' + cdtime + '分钟只能抽取一次哦！')
+            return false
+        }
+        CD[this.e.user_id] = true
+        CD[this.e.user_id] = setTimeout(() => {
+            if (CD[this.e.user_id]) delete CD[this.e.user_id]
+        }, cdtime * 60 * 1000)
         try {
             const { firstElement, imageUrl } = await getRandomMemberImage()
             await this.e.reply(`唔...一不小心，转生成了${firstElement}！`, segment.image(imageUrl))
