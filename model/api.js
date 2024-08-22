@@ -29,7 +29,8 @@ export async function getRandomMemberImage() {
         const response = await fetch(apiUrl)
         const apiData = await response.json()
         const imageUrl = apiData.image
-        return { firstElement, imageUrl }
+        const bandName = apiData.i_band
+        return { firstElement, imageUrl, bandName }
     } catch (error) {
         console.error('执行过程中发生错误:', error)
         throw error

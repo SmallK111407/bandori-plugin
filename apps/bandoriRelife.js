@@ -30,8 +30,8 @@ export class bandoriRelife extends plugin {
             if (CD[this.e.user_id]) delete CD[this.e.user_id]
         }, cdtime * 60 * 1000)
         try {
-            const { firstElement, imageUrl } = await getRandomMemberImage()
-            await this.e.reply([segment.image(imageUrl), `唔...一不小心，转生成了${firstElement}！`])
+            const { firstElement, imageUrl, bandName } = await getRandomMemberImage()
+            await this.e.reply([segment.image(imageUrl), `唔...一不小心,转生成了 ${firstElement} !\n所属乐队: ${bandName}`])
         } catch (error) {
             logger.error('发生了不可抗拒的错误:', error)
             return false
