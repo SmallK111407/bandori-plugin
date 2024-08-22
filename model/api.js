@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 
 const _path = process.cwd() + '/plugins/bandori-plugin'
-const filePath = `${_path}/model/jsonData/fandomGroup.json`
+const filePath = `${_path}/model/jsonData/alias.json`
 
 export async function getMemberInfo(memberId) {
     const apiUrl = `https://bandori.party/api/members/${memberId}/`
