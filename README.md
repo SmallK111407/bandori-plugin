@@ -12,7 +12,7 @@ _♥BanG Dream!♥_
 
 ## 项目介绍
 
-基于[BandoriPatry社区](https://bandori.party/)提供的API所编写的插件。
+提供部分基于[BandoriPatry社区](https://bandori.party/)提供的API所编写以及由我个人想法实现部分功能的插件。
 
 ## 安装方式
 
@@ -27,13 +27,9 @@ git clone --depth=1 https://github.com/SmallK111407/bandori-plugin.git ./plugins
 git clone --depth=1 https://gitee.com/SmallK111407/bandori-plugin.git ./plugins/bandori-plugin/
 ```
 
-## 功能介绍
+## 功能帮助
 
-<details><summary>展开/收起</summary>
-
-咯咯咯~
-
-</details>
+对机器人发送`#邦邦帮助`获取
 
 ## 免责声明
 
