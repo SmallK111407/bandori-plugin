@@ -10,7 +10,7 @@ export default async function (path, params, cfg) {
     retType: cfg.retMsgId ? 'msgId' : 'default',
     beforeRender({ data }) {
       let resPath = data.pluResPath
-      const layoutPath = process.cwd() + '/plugins/v-plugin/resources/common/layout/'
+      const layoutPath = process.cwd() + '/plugins/bandori-plugin/resources/common/layout/'
       return {
         ...data,
         _res_path: resPath,
