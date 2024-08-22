@@ -1,6 +1,6 @@
 import lodash from 'lodash'
 import fs from 'fs'
-import { Data } from '../model/components/index.js'
+import { Data } from '../../model/components/index.js'
 
 let Theme = {
   async getThemeCfg (theme, exclude) {
