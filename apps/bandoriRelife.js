@@ -31,7 +31,7 @@ export class bandoriRelife extends plugin {
         }, cdtime * 60 * 1000)
         try {
             const { firstElement, imageUrl } = await getRandomMemberImage()
-            await this.e.reply(`唔...一不小心，转生成了${firstElement}！`, segment.image(imageUrl))
+            await this.e.reply([`唔...一不小心，转生成了${firstElement}！`, segment.image(imageUrl)])
         } catch (error) {
             logger.error('发生了不可抗拒的错误:', error)
             return false
