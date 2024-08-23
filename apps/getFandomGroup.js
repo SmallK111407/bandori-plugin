@@ -28,7 +28,7 @@ export class getFandomGroup extends plugin {
     }
     async getFandomGroup() {
         let reg = this.e.msg.replace(/#邦邦|邦多利|同好群/g, '').trim()
-        if (!reg) return this.e.reply([segment.image(`${_path}/resources/images/fandomMap.png`), `可发送 #同好群帮助 获取帮助`])
+        if (!reg) return this.e.reply([segment.image(`${_path}/resources/images/fandomGroup/fandomMap.png`), `可发送 #同好群帮助 获取帮助`])
         const fandomGroups = await getElementsByKey(reg)
         if (!fandomGroups) return this.e.reply(`不支持所查询区域！请使用 #同好群区域列表 查看可查询的区域`)
         await this.e.reply(`您所查询的 ${reg} 有以下同好群！\n` + fandomGroups)

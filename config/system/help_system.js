@@ -47,10 +47,14 @@ export const helpList = [{
     desc: '查询圣地巡礼地点详细信息'
   }, {
     icon: 11,
+    title: '#邦图',
+    desc: '随机发送一张邦图'
+  }, {
+    icon: 13,
     title: '#邦邦版本',
     desc: '获取该机器人新更新的内容'
   }, {
-    icon: 13,
+    icon: 15,
     title: '#邦邦帮助',
     desc: '获取你目前所看到的这个图片'
   }]
