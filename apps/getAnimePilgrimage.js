@@ -21,7 +21,7 @@ export class bandoriAPs extends plugin {
         })
     }
     async bandoriAPNames() {
-        const regex = /^#?(邦邦|邦多利)?圣地巡礼查询(\\d*)?$/
+        const regex = /^#?(邦邦|邦多利)?圣地巡礼查询(\d*)$/
         const match = this.e.msg.match(regex)
         let page = 1
         if (match && match[2]) {
