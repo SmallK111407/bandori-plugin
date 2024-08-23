@@ -61,19 +61,19 @@ export const helpList = [{
 }, {
   group: '同好群功能',
   list: [{
-    icon: 11,
+    icon: 17,
     title: '#邦邦同好群',
     desc: '获取邦邦同好群地图 作者@瑠荧'
   }, {
-    icon: 13,
+    icon: 19,
     title: '#邦邦<地区名字>同好群',
     desc: '获取对应地区同好群列表 例如 #邦邦福建同好群'
   }, {
-    icon: 15,
+    icon: 21,
     title: '#邦邦同好群列表',
     desc: '获取所有支持查询的地区名字'
   }, {
-    icon: 17,
+    icon: 23,
     title: '#邦邦同好群帮助',
     desc: '获取此段功能的文字帮助'
   }]
