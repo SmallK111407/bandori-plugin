@@ -1,6 +1,6 @@
 {
   "name": "bandori-plugin",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Yunzai-Bot邦邦插件",
   "main": "index.js",
   "type": "module",
