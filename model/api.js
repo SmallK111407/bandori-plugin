@@ -64,29 +64,25 @@ export async function getAnimePilgrimageNames() {
             counter++
         })
     })
-    return names.join('\n')
+    return names.join('\n').replace(/我什么都会做的.gif/g, '我什么都会做的')
 }
 
-export async function getElementsByAnimePilgrimageNames(nameOrArray) {
+export async function getElementsByAnimePilgrimageNames(name) {
     const urls = animePilgrimageUrls
     const results = await Promise.all(urls.map(fetchData))
-    const namesArray = Array.isArray(nameOrArray) ? nameOrArray : [nameOrArray]
     let elements = []
     results.forEach(result => {
         result.forEach(item => {
-            if (namesArray.includes(item.name)) {
+            if (item.name === name) {
                 item.origin = item.origin || "暂无"
                 item.originURL = item.originURL || "暂无"
                 item.image = item.image.split('?')[0]
-                const minutes = Math.floor(item.s / 60);
-                const seconds = item.s % 60;
-                item.s = `${minutes}分钟 ${seconds}秒`
+                const minutes = Math.floor(item.s / 60)
+                const seconds = item.s % 60
+                item.s = `${minutes}分钟${seconds}秒`
                 elements.push(item)
             }
         })
     })
-    if (elements.length === 0) {
-        return undefined
-    }
-    return elements
+    return elements.length > 0 ? elements : undefined;
 }
