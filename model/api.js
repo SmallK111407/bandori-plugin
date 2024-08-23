@@ -42,9 +42,9 @@ export async function getRandomMemberImage() {
 
 const animePilgrimageUrls = [
     // BanG Dream!
-    "https://api.anitabi.cn/bangumi/186515/points/detail",
+    'https://api.anitabi.cn/bangumi/186515/points/detail',
     // BanG Dream!It's MyGO!!!!!
-    "https://api.anitabi.cn/bangumi/428735/points/detail"
+    'https://api.anitabi.cn/bangumi/428735/points/detail'
 ]
 
 async function fetchData(url) {
@@ -74,12 +74,17 @@ export async function getElementsByAnimePilgrimageNames(name) {
     results.forEach(result => {
         result.forEach(item => {
             if (item.name === name) {
-                item.origin = item.origin || "暂无"
-                item.originURL = item.originURL || "暂无"
+                item.origin = item.origin || '暂无'
+                item.originURL = item.originURL || '暂无'
                 item.image = item.image.split('?')[0]
-                const minutes = Math.floor(item.s / 60)
-                const seconds = item.s % 60
-                item.s = `${minutes}分钟${seconds}秒`
+                if (!item.ep) {
+                    item.ep = '无'
+                    item.s = '无'
+                } else {
+                    const minutes = Math.floor(item.s / 60)
+                    const seconds = item.s % 60
+                    item.s = `${minutes}分钟${seconds}秒`
+                }
                 elements.push(item)
             }
         })
