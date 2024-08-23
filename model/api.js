@@ -74,6 +74,7 @@ export async function getElementsByAnimePilgrimageNames(name) {
     results.forEach(result => {
         result.forEach(item => {
             if (item.name === name) {
+                item.name.replace(/我什么都会做的.gif/g, '我什么都会做的')
                 item.origin = item.origin || '暂无'
                 item.originURL = item.originURL || '暂无'
                 item.image = item.image.split('?')[0]

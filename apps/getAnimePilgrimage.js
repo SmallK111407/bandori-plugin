@@ -64,7 +64,7 @@ export class bandoriAPs extends plugin {
                 `\n位置来源: ${element.origin}`,
                 `\n来源网址: ${element.originURL}`,
                 `\n注意: 来源网址为谷歌地图，请使用特殊方法访问！`
-            ].replace(/我什么都会做的.gif/g, '我什么都会做的')
+            ]
             await this.e.reply(APResult)
         }
     }
