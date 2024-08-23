@@ -3,6 +3,7 @@ import fs from 'node:fs/promises'
 const _path = process.cwd() + '/plugins/bandori-plugin'
 const filePath = `${_path}/model/jsonData/alias.json`
 
+// BandoriParty API
 export async function getMemberInfo(memberId) {
     const apiUrl = `https://bandori.party/api/members/${memberId}/`
     return fetch(apiUrl)
@@ -35,4 +36,57 @@ export async function getRandomMemberImage() {
         console.error('执行过程中发生错误:', error)
         throw error
     }
+}
+
+// anitabi.cn API
+
+const animePilgrimageUrls = [
+    // BanG Dream!
+    "https://api.anitabi.cn/bangumi/186515/points/detail",
+    // BanG Dream!It's MyGO!!!!!
+    "https://api.anitabi.cn/bangumi/428735/points/detail"
+]
+
+async function fetchData(url) {
+    const response = await fetch(url)
+    const data = await response.json()
+    return data
+}
+
+export async function getAnimePilgrimageNames() {
+    const urls = animePilgrimageUrls
+    const results = await Promise.all(urls.map(fetchData))
+    let names = []
+    let counter = 1
+    results.forEach(result => {
+        result.forEach(item => {
+            names.push(`${counter} - ${item.name}`)
+            counter++
+        })
+    })
+    return names.join('\n')
+}
+
+export async function getElementsByAnimePilgrimageNames(nameOrArray) {
+    const urls = animePilgrimageUrls
+    const results = await Promise.all(urls.map(fetchData))
+    const namesArray = Array.isArray(nameOrArray) ? nameOrArray : [nameOrArray]
+    let elements = []
+    results.forEach(result => {
+        result.forEach(item => {
+            if (namesArray.includes(item.name)) {
+                item.origin = item.origin || "暂无"
+                item.originURL = item.originURL || "暂无"
+                item.image = item.image.split('?')[0]
+                const minutes = Math.floor(item.s / 60);
+                const seconds = item.s % 60;
+                item.s = `${minutes}分钟 ${seconds}秒`
+                elements.push(item)
+            }
+        })
+    })
+    if (elements.length === 0) {
+        return undefined
+    }
+    return elements
 }

@@ -19,7 +19,7 @@ export class getMemberInformation extends plugin {
     }
     async getMemberInformation() {
         let msg = this.e.msg
-        let reg = msg.replace(/#|开合|开盒|邦邦|邦多利|信息/g, '').trim()
+        let reg = msg.replace(/#|邦邦|邦多利|开合|开盒/g, '').trim()
         let name = reg
         let role = alias.get(name)
         if (!role) return false
