@@ -10,7 +10,7 @@ export class bandoriAPs extends plugin {
             priority: 10,
             rule: [
                 {
-                    reg: '^#?(邦邦|邦多利)?圣地巡礼查询$',
+                    reg: '^#?(邦邦|邦多利)?圣地巡礼查询(?: ([1-9][0-9]?))?$',
                     fnc: 'bandoriAPNames'
                 },
                 {
@@ -21,8 +21,28 @@ export class bandoriAPs extends plugin {
         })
     }
     async bandoriAPNames() {
+        const regex = /^#?(邦邦|邦多利)?圣地巡礼查询(?: ([1-9][0-9]?))?$/
+        const match = this.e.msg.match(regex)
+        let page = 1
+        if (match && match[2]) {
+            page = parseInt(match[2], 10)
+        }
         const bandoriAnimePilgrimageNames = await getAnimePilgrimageNames()
-        await this.e.reply(`当前可支持查询以下圣地巡礼地点\n${bandoriAnimePilgrimageNames}`)
+        const namesArray = bandoriAnimePilgrimageNames.split('\n')
+        const itemsPerPage = 20
+        const totalPages = Math.ceil(namesArray.length / itemsPerPage)
+        page = Math.max(1, Math.min(page, totalPages))
+        const start = (page - 1) * itemsPerPage
+        const end = page * itemsPerPage
+        const currentPageNames = namesArray.slice(start, end).join('\n')
+        let replyMessage = `当前可支持查询以下圣地巡礼地点 (第 ${page} 页，共 ${totalPages} 页)\n${currentPageNames}`
+        if (page < totalPages) {
+            replyMessage += `\n输入 "#邦邦圣地巡礼查询 ${page + 1}" 来查看更多地点。`;
+        }
+        if (page > 1) {
+            replyMessage += `\n输入 "#邦邦圣地巡礼查询 ${page - 1}" 来返回上一页。`;
+        }
+        await this.e.reply(replyMessage)
     }
     async bandoriAP() {
         let reg = this.e.msg.replace(/#|邦邦|邦多利|圣地巡礼/g, '').trim()
