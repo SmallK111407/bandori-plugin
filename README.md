@@ -41,7 +41,6 @@ git clone --depth=1 https://gitee.com/SmallK111407/bandori-plugin.git ./plugins/
 
 ## 其他
 * 本项目遵循[MIT](./LICENSE)开源协议
-* 感谢所有提交图片的贡献者
 * 您的Star是我们更新的最大动力！
 
 ## 致谢
