@@ -4,7 +4,7 @@ const _path = process.cwd() + '/plugins/bandori-plugin'
 const filePath = `${_path}/model/jsonData/characterBirthday.json`
 
 const getBirthdayData = () => {
-    const data = fs.readFileSync((filePath), 'utf-8')
+    const data = fs.readFile((filePath), 'utf-8')
     return JSON.parse(data)
 }
 const getClosestBirthdays = (n) => {
@@ -37,7 +37,7 @@ const getClosestBirthdays = (n) => {
 export async function getBandoriBirthday(n) {
     const closestBirthdays = await getClosestBirthdays(n)
 
-    return closestBirthdays.map(birthday => {   
+    return closestBirthdays.map(birthday => {
         return `${birthday.name} ${birthday.birthday} 还有 ${Math.ceil(birthday.daysDifference)} 天到`
     }).join("\n")
 }
