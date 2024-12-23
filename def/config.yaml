@@ -3,3 +3,6 @@ abbrSetAuth: 0
 
 # 转生功能冷却时间 单位：分钟
 relifeCD: 1
+
+# "#邦邦生日"一次列出的最近的生日角色的人数 默认：5
+birthhdayNumber: 5
