@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="../../../../SmallK111407/"><img src="./resources/logo/logo.svg" width="100%" height="100%" alt="bandori-plugin"></a>
+  <a href="https://bang-dream.com/"><img src="./resources/logo/logo.svg" width="70%" height="70%" alt="BanG Dream!"></a>
   <a href="../../../../SmallK111407/"><img src="./resources/logo/logo.png" width="100%" height="100%" alt="bandori-plugin"></a>
 </p>
 
