@@ -51,29 +51,33 @@ export const helpList = [{
     desc: '随机发送一张邦图'
   }, {
     icon: 13,
+    title: '#邦邦生日',
+    desc: '获取最近角色的生日'
+  }, {
+    icon: 15,
     title: '#邦邦版本',
     desc: '获取该机器人新更新的内容'
   }, {
-    icon: 15,
+    icon: 17,
     title: '#邦邦帮助',
     desc: '获取你目前所看到的这个图片'
   }]
 }, {
   group: '同好群功能',
   list: [{
-    icon: 17,
+    icon: 19,
     title: '#邦邦同好群',
     desc: '获取邦邦同好群地图 作者@瑠荧'
   }, {
-    icon: 19,
+    icon: 21,
     title: '#邦邦<地区名字>同好群',
     desc: '获取对应地区同好群列表 例如 #邦邦福建同好群'
   }, {
-    icon: 21,
+    icon: 23,
     title: '#邦邦同好群列表',
     desc: '获取所有支持查询的地区名字'
   }, {
-    icon: 23,
+    icon: 25,
     title: '#邦邦同好群帮助',
     desc: '获取此段功能的文字帮助'
   }]
