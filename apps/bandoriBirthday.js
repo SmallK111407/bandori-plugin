@@ -19,7 +19,7 @@ export class bandoriBirthday extends plugin {
     }
     get appconfig() { return setting.getConfig("config") }
     async bandoriBirthday() {
-        const bandoriNumber = this.appconfig['birthhdayNumber']
+        const bandoriNumber = this.appconfig['birthdayNumber']
         const birthday = await getBandoriBirthday(bandoriNumber)
         await this.e.reply(birthday)
     }
